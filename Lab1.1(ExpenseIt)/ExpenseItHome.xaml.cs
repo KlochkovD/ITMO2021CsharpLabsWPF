@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Lab1._1_ExpenseIt_
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ExpenseItHome.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class ExpenseItHome : Page
     {
-        public MainWindow()
+        public ExpenseItHome()
         {
             InitializeComponent();
         }
