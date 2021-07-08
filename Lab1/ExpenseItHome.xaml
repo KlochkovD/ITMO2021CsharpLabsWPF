@@ -8,6 +8,15 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="ExpenseIt - Home">
     <Grid>
+        <Grid.Resources>
+            <!-- Expense Report Data -->
+            <XmlDataProvider x:Key="ExpenseDataSource" XPath="Expenses/Persons" Source="Data/XMLData.xml">
+            </XmlDataProvider>
+            <!-- Name item template -->
+            <DataTemplate x:Key="nameItemTemplate">
+                <Label Content="{Binding XPath=@Name}"/>
+            </DataTemplate>
+        </Grid.Resources>
         <Grid.Background>
             <ImageBrush ImageSource="watermark.png" />
         </Grid.Background>
@@ -28,10 +37,9 @@
             <Label Style="{StaticResource listHeaderTextStyle}">Names</Label>
         </Border>
         <ListBox Name="peopleListBox" Grid.Column="1" Grid.Row="2">
-            <ListBoxItem>Mike</ListBoxItem>
-            <ListBoxItem>Lisa</ListBoxItem>
-            <ListBoxItem>John</ListBoxItem>
-            <ListBoxItem>Mary</ListBoxItem>
+            ItemsSource="{Binding Source={StaticResource ExpenseDataSource}, 
+XPath=Person}"
+ ItemTemplate="{StaticResource nameItemTemplate}">
         </ListBox>
         <!-- View report button -->
         <Button Grid.Column="1" Grid.Row="3" Click="Button_Click" Style="{StaticResource buttonStyle}">View</Button>

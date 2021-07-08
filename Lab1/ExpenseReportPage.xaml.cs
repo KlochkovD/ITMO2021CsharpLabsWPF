@@ -24,5 +24,11 @@ namespace Lab1._1_ExpenseIt_
         {
             InitializeComponent();
         }
+
+        public ExpenseReportPage(object data) : this()
+        {
+            // Bind to expense report data.
+            this.DataContext = data;
+        }
     }
 }
